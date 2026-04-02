@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diary Entry Editor</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">diary<span>.editor</span></div>
+    <div class="header-actions">
+      <button class="btn btn-secondary" onclick="loadTxt()">📂 Load .txt</button>
+      <button class="btn btn-secondary" onclick="saveTxt()">💾 Save .txt</button>
+      <button class="btn btn-ghost" onclick="clearAll()">🗑 Clear All</button>
+    </div>
+  </header>
+
+  <!-- LEFT: Editor -->
+  <div class="left-panel">
+    <div class="panel-header">
+      <span>entries</span>
+      <span class="count-badge" id="countBadge">0 images</span>
+    </div>
+
+    <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
+      <span class="icon">🖼</span>
+      <strong>Drop images here</strong><br>
+      or click to browse<br>
+      <span style="font-size:10px; color: var(--muted)">PNG, JPG, WEBP — multiple at once</span>
+    </div>
+
+    <input type="file" id="fileInput" multiple accept="image/*">
+
+    <div class="date-bar">
+      <label>GLOBAL DATE →</label>
+      <input type="date" id="globalDate" style="width: 140px;">
+      <span class="global-date-toggle" onclick="applyGlobalDate()">apply all</span>
+    </div>
+
+    <div class="entries-list" id="entriesList">
+      <div class="empty-state" id="emptyState">
+        <span class="empty-icon">📷</span>
+        Drop your screenshots above to begin
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: Output -->
+  <div class="right-panel">
+    <div class="panel-header">
+      <span>output — ready to copy</span>
+      <button class="btn btn-primary" style="padding: 3px 12px; font-size:10px;" onclick="copyOutput()">⎘ Copy</button>
+    </div>
+    <div class="output-area" id="outputArea">
+      <span style="color:var(--muted); font-style:italic;">// entries will appear here as you fill them in...</span>
+    </div>
+    <div class="output-actions">
+      <button class="btn btn-primary" onclick="copyOutput()">⎘ Copy All</button>
+      <button class="btn btn-secondary" onclick="copyWrapped()">Copy with array wrapper</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <input type="file" id="loadTxtInput" accept=".txt,.json" style="display:none" onchange="handleLoadTxt(event)">
+
+  <script src="script.js"></script>
+</body>
+
+</html>
