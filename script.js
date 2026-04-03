@@ -2,13 +2,12 @@
 let entries = []; // { id, filename, date, tags, notes, links }
 
 const ALL_TAGS = [
-    "Blender", "Rigging", "Texturing", "Trees", "Particles",
+    "Blender", 
     "Godot", "Godot Sensei", "Game Dev",
-    "Kleki", "PhotoShop",
-    "Life", "Journal", "ChatGPT", "Facebook",
-    "Miusoft", "Yoo Game Art", "Freelance",
-    "Films", "Film", "Bat Man", "Games", "Miu Plays", "M Entertainment",
-    "Tools"
+    "Life", "Journal",
+    "Miusoft", "Yoo Game Art", "Freelance","Marketing",
+    "Film", "Bat Man", "Games", "Miu Plays", "M Entertainment",
+    "Tools", 
 ];
 
 // ── Helpers ────────────────────────────────────────────────
@@ -55,7 +54,7 @@ function handleFiles(files) {
     if (!imgs.length) return;
 
     // Sort by filename naturally
-    imgs.sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }));
+    imgs.sort((b, a) => a.name.localeCompare(b.name, undefined, { numeric: true }));
 
     imgs.forEach(f => {
         entries.push({
@@ -71,6 +70,7 @@ function handleFiles(files) {
 
     fileInput.value = '';
     renderList();
+    document.getElementById('dropZone').style.display = 'none';
     renderOutput();
 }
 
@@ -196,6 +196,7 @@ function applyGlobalDate() {
 function clearAll() {
     if (entries.length && !confirm('Clear all entries?')) return;
     entries = [];
+    document.getElementById('dropZone').style.display = 'block'; 
     renderList();
     renderOutput();
 }
