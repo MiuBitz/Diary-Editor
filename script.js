@@ -7,7 +7,7 @@ const ALL_TAGS = [
     "Life", "Journal",
     "Miusoft", "Yoo Game Art", "Freelance","Marketing",
     "Film", "Bat Man", "Games", "Miu Plays", "M Entertainment",
-    "Tools", 
+    "Tools", "Stocks", "Miu Farming Days" , "Game Ideas", "Android", "Mobile", "Instagram", "Motivation"
 ];
 
 // ── Helpers ────────────────────────────────────────────────
