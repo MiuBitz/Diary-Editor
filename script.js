@@ -1,15 +1,6 @@
 // ── State ──────────────────────────────────────────────────
 let entries = []; // { id, filename, date, tags, notes, links }
 
-const ALL_TAGS = [
-    "Blender", 
-    "Godot", "Godot Sensei", "Game Dev",
-    "Life", "Journal",
-    "Miusoft", "Yoo Game Art", "Freelance","Marketing",
-    "Film", "Bat Man", "Games", "Miu Plays", "M Entertainment",
-    "Tools", "Stocks", "Miu Farming Days" , "Game Ideas", "Android", "Mobile", "Instagram", "Motivation"
-];
-
 // ── Helpers ────────────────────────────────────────────────
 function pad(n) { return String(n).padStart(2, '0'); }
 
